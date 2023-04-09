@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/DestJlsi/static/css/main.073c9b0a.css",
+    "main.js": "/DestJlsi/static/js/main.bd9f8885.js",
+    "index.html": "/DestJlsi/index.html",
+    "main.073c9b0a.css.map": "/DestJlsi/static/css/main.073c9b0a.css.map",
+    "main.bd9f8885.js.map": "/DestJlsi/static/js/main.bd9f8885.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.bd9f8885.js"
+  ]
+}
