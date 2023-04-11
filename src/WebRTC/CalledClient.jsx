@@ -8,9 +8,11 @@ function CalledClient() {
     const [peerCall, setPeerCall] = useState(null); // Добавляем состояние для peerCall
     const myRef = useRef(null);
     const remoteRef = useRef(null);
+    const [peerToken, setPeerToken] = useState('');
     useEffect(() => {
         peer.on('open', function(peerID) {
             console.log(peerID)
+            setPeerToken(peerID);
         });
         peer.on('call', function(call) {
             setPeerCall(call);
@@ -21,7 +23,7 @@ function CalledClient() {
     function callanswer() {
         if (peerCall) {
             navigator.mediaDevices.getDisplayMedia({ audio: true, video: true }).then(function(mediaStream) {
-                peerCall.answer(mediaStream);
+                peerCall.answer(mediaStream, true, true);
                 myRef.current.srcObject = mediaStream;
                 setTimeout(function() {
                     remoteRef.current.srcObject = peerCall.remoteStream;
@@ -33,8 +35,10 @@ function CalledClient() {
     }
 
 
+
+
     function callToNode() {
-        navigator.mediaDevices.getDisplayMedia({ audio: true, video: true }).then(function(mediaStream) {
+        navigator.mediaDevices.getDisplayMedia({video: true }).then(function(mediaStream) {
             let call = peer.call(otherID, mediaStream);
             call.on('stream', function(stream) {
                 setTimeout(function() {
@@ -61,8 +65,9 @@ function CalledClient() {
                 }
             </div>
             <video ref={remoteRef} autoPlay/>
-
-
+            {
+                peerToken
+            }
 
         </div>
     );
