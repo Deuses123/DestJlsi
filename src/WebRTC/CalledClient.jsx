@@ -65,9 +65,7 @@ function CalledClient() {
                 }
             </div>
             <video ref={remoteRef} autoPlay/>
-            {
-                peerToken
-            }
+
 
         </div>
     );

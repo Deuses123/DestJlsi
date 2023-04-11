@@ -3,6 +3,7 @@ import Peer from 'peerjs';
 
 function WebRTCExample() {
     let peer = new Peer();
+    const [peerToken, setPeerToken] = useState('');
     const [callState, setCallState] = useState(false);
     const [otherID, setOtherID] = useState('');
     const [peerCall, setPeerCall] = useState(null); // Добавляем состояние для peerCall
@@ -10,6 +11,7 @@ function WebRTCExample() {
     const remoteRef = useRef(null);
     useEffect(() => {
         peer.on('open', function(peerID) {
+            setPeerToken(peerID)
             console.log(peerID)
         });
         peer.on('call', function(call) {
@@ -49,6 +51,9 @@ function WebRTCExample() {
 
     return (
         <div>
+            {
+                peerToken
+            }
             <input value={otherID} onChange={e => setOtherID(e.target.value)} />
             <button onClick={callToNode}>Вызов</button>
 
