@@ -20,7 +20,7 @@ function WebRTCExample() {
 
     function callanswer() {
         if (peerCall) { // Проверяем, определен ли peerCall
-            navigator.mediaDevices.getDisplayMedia({ audio: true, video: true }).then(function(mediaStream) {
+            navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(function(mediaStream) {
                 peerCall.answer(mediaStream);
                 myRef.current.srcObject = mediaStream;
                 setTimeout(function() {
@@ -33,7 +33,7 @@ function WebRTCExample() {
     }
 
     function callToNode() {
-        navigator.mediaDevices.getDisplayMedia({ audio: true, video: true }).then(function(mediaStream) {
+        navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(function(mediaStream) {
             let call = peer.call(otherID, mediaStream); // Сохраняем вызов в переменную call
             call.on('stream', function(stream) {
                 setTimeout(function() {
@@ -48,19 +48,22 @@ function WebRTCExample() {
     }
 
     return (
-      <div>
-          <input value={otherID} onChange={e => setOtherID(e.target.value)} />
-              <button onClick={callToNode}>Вызов</button>
+        <div>
+            <input value={otherID} onChange={e => setOtherID(e.target.value)} />
+            <button onClick={callToNode}>Вызов</button>
 
-              <br/>
-                  <video ref={myRef} autoPlay muted></video>
-                  <div>
-                      {
-                        callState ? <button onClick={callanswer}>Принять</button> : <br/>
-                      }
-                  </div>
-                  <video ref={remoteRef} autoPlay/>
-      </div>
+            <br/>
+            <video ref={myRef} autoPlay muted></video>
+            <div>
+                {
+                    callState ? <button onClick={callanswer}>Принять</button> : <br/>
+                }
+            </div>
+            <video ref={remoteRef} autoPlay/>
+
+
+
+        </div>
     );
 }
 
