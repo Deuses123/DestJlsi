@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/DestJlsi/static/css/main.073c9b0a.css",
-    "main.js": "/DestJlsi/static/js/main.d2a394a2.js",
+    "main.js": "/DestJlsi/static/js/main.22ccf4cc.js",
     "index.html": "/DestJlsi/index.html",
     "main.073c9b0a.css.map": "/DestJlsi/static/css/main.073c9b0a.css.map",
-    "main.d2a394a2.js.map": "/DestJlsi/static/js/main.d2a394a2.js.map"
+    "main.22ccf4cc.js.map": "/DestJlsi/static/js/main.22ccf4cc.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.d2a394a2.js"
+    "static/js/main.22ccf4cc.js"
   ]
 }
