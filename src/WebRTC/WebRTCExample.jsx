@@ -50,7 +50,7 @@ function WebRTCExample() {
     }
 
     return (
-        <div>
+        <div>Token:
             {
                 peerToken
             }
