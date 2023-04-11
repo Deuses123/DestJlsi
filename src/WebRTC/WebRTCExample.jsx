@@ -20,7 +20,7 @@ function WebRTCExample() {
 
     function callanswer() {
         if (peerCall) { // Проверяем, определен ли peerCall
-            navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(function(mediaStream) {
+            navigator.mediaDevices.getDisplayMedia({ audio: true, video: true }).then(function(mediaStream) {
                 peerCall.answer(mediaStream);
                 myRef.current.srcObject = mediaStream;
                 setTimeout(function() {
@@ -33,7 +33,7 @@ function WebRTCExample() {
     }
 
     function callToNode() {
-        navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(function(mediaStream) {
+        navigator.mediaDevices.getDisplayMedia({ audio: true, video: true }).then(function(mediaStream) {
             let call = peer.call(otherID, mediaStream); // Сохраняем вызов в переменную call
             call.on('stream', function(stream) {
                 setTimeout(function() {
